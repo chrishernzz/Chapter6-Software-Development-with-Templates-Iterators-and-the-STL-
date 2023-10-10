@@ -28,7 +28,10 @@ void MyBagsCourse::readFromFile(string& fileName){
 		system("pause");
 		system("cls");
 		return;
-	}
+	}/*
+	if (fileName == "STOP") {
+		break;
+	}*/
 
 	//while it is not the end of hte file
 	while (!readFile.fail()) {
