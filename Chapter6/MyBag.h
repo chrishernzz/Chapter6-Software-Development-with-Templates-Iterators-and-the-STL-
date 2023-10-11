@@ -12,9 +12,10 @@ int inputInteger(string prompt, int startRange, int endRange);
 class MyBag{
 private:
 	//pointer variable to dynamic array of ints
-	vector<int*> myBag;
-	int size;
-	int capacity;
+	vector<int> myBag;
+	int* newValue = new int[myBag.size()];
+	int* size;
+	int* capacity;
 public:
 	//defualt constructor
 	MyBag();
@@ -33,9 +34,9 @@ public:
 	
 	//member functions to clear, insert, search, remove, sort, and display
 	void clearMyBag();
-	void insertMyBag(int value);
-	void searchMyBag(int* search);
-	void removeMyBag(int* remove);
+	void insertMyBag(int *value);
+	void searchMyBag(int search);
+	void removeMyBag(int remove);
 	void sortMyBag();
 
 	void displayMyBag();

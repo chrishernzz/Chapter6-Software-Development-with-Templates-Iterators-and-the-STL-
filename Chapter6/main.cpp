@@ -5,7 +5,6 @@
 #include<iostream>
 #include"input (1).h"
 #include"MyBag.h"
-#include"Course.h"
 using namespace std;
 
 //prototype

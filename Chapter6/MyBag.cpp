@@ -6,8 +6,8 @@ MyBag::MyBag(): size(0), capacity(0){}
 //precondition: going to call my constructor
 //postcondition: going to be allocating new to the newSize and newCapacity with size and capacity
 MyBag::MyBag(int newSize, int newCapacity){
-	size = newSize;
-	capacity = newCapacity;
+	*size = newSize;
+	*capacity = newCapacity;
 }
 //precondition: going to call my deconstructor
 //postcondition: NA
@@ -16,23 +16,23 @@ MyBag::~MyBag(){}
 //precondition: going to get the size 
 //postcondition: going to return the private size
 int MyBag::getSize() const{
-	return size;
+	return *size;
 }
 //precondition: going to get the new size
 //postcondition: going to set the private size with the new size member
 void MyBag::setSize(int newSize){
-	size = newSize;
+	*size = newSize;
 }
 
 //precondition: going to get the capacity 
 //postcondition: going to return the private capacity
 int MyBag::getCapacity() const{
-	return capacity;
+	return *capacity;
 }
 //precondition: going to get the new capacity
 //postcondition: going to set the private capacity with the new sicapacityze member
 void MyBag::setCapacity(int newCapacity) {
-	capacity = newCapacity;
+	*capacity = newCapacity;
 }
 
 //precondition: going to call the myBag vector
@@ -53,31 +53,29 @@ void MyBag::clearMyBag(){
 }
 //precondition: going to pass in a value as our parameter and its a pointer
 //postcondition: going to then use .push_back() to push back the values
-void MyBag::insertMyBag(int value){
-	//allocating memory for a new integer
-	int* newValue = new int(value);
-	myBag.push_back(newValue);
-	cout << "\n\t\t\t" << value << " has been inserted into MyBag.";
+void MyBag::insertMyBag(int *value){
+	myBag.push_back(*newValue);
+	cout << "\n\t\t\t" << *value << " has been inserted into MyBag.";
 	cout << "\n\n";
 	system("pause");
 	system("cls");
 }
 //precondition: going to pass in a value as our parameter
 //postcondition: going to for loop through MyBag size, then search for the index (subscript)
-void MyBag::searchMyBag(int *search){
+void MyBag::searchMyBag(int search){
 	bool found = false;
 	//WE NEED TO USE THE SIZE THIS IS JUST TEST CASING
 	for (int i = 0; i < myBag.size(); i++) {
 		//if statement to check if its equal to it, go through the myBag
-		if (*myBag.at(i) == *search) {
+		if (myBag.at(i) == search) {
 			//flag it to true
 			found = true;
-			cout << "\n\t\t\tValue " << *search << " is found at subscript #" << i << " from MyBag.";
+			cout << "\n\t\t\tValue " << search << " is found at subscript #" << i << " from MyBag.";
 		}
 	}
 	//if statement to check if its not found
 	if (!found) {
-		cout << "\n\t\t\tValue " << *search << " is not found from MyBag.";
+		cout << "\n\t\t\tValue " << search << " is not found from MyBag.";
 	}
 
 	cout << "\n\n";
@@ -86,11 +84,11 @@ void MyBag::searchMyBag(int *search){
 }
 //precondition: going to pass in a value as our parameter
 //postcondition: going to use the .erase() to delete the value from MyBag
-void MyBag::removeMyBag(int* remove){
+void MyBag::removeMyBag(int remove){
 	//get the beginning of the bag, then erase it 
-	myBag.erase(myBag.begin() + *remove);
+	myBag.erase(myBag.begin() + remove);
 	//cout << "\n\t\t\tValue " << remove << " has been deleted from MyBag.";
-	cout << "\n\t\t\tIndex [" << *remove << "] has been deleted from MyBag.";
+	cout << "\n\t\t\tIndex [" << remove << "] has been deleted from MyBag.";
 	cout << "\n\n";
 	system("pause");
 	system("cls");
@@ -109,7 +107,7 @@ void MyBag::sortMyBag() {
 	//int* first;
 	//int* second;
 	//if (*first < *second) {
-	sort(myBag.begin(), myBag.end(), [](const int* a, const int* b) { return (*a < *b);});
+	sort(myBag.begin(), myBag.end());
 	cout << "\n\t\t\tMyBag has been sorted.";
 	cout << "\n\n";
 	system("pause");
@@ -128,7 +126,7 @@ void MyBag::displayMyBag(){
 	}
 	cout << "\n\t\t\tMyBag contains these sorted integers: ";
 	for (int i = 0; i < myBag.size(); i++){
-		cout <<"\n\t\t\t[" << i << "] - " << *myBag[i];
+		cout <<"\n\t\t\t[" << i << "] - " << myBag[i];
 	}
 	cout << "\n\n";
 	system("pause");
@@ -160,9 +158,9 @@ void MyBag::menuInformation(){
 		}
 				break;
 		case 'B': {
-			int insert = inputInteger("\n\t\t\tEnter a value and insert into MyBag: ");
+			*newValue = inputInteger("\n\t\t\tEnter a value and insert into MyBag: ");
 			//setSize(insert);
-			insertMyBag(insert);
+			insertMyBag(newValue);
 		}
 				break;
 		case 'C': {
@@ -174,7 +172,7 @@ void MyBag::menuInformation(){
 				goto beginning;
 			}
 			int search = inputInteger("\n\t\t\tEnter a value to search fromm MyBag: ");
-			searchMyBag(&search);
+			searchMyBag(search);
 		}
 				break;
 		case 'D': {
@@ -186,7 +184,7 @@ void MyBag::menuInformation(){
 				goto beginning;
 			}
 			int remove = inputInteger("\n\t\t\tEnter an index(subscript) from MyBag to be deleted: ", 0, myBag.size()-1);
-			removeMyBag(&remove);
+			removeMyBag(remove);
 		}
 				break;
 		case 'E': {
