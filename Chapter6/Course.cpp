@@ -32,6 +32,10 @@ const MyBagTemplate<int>& Course::getStudentIDs() const{
 	return studentIDs;
 }
 
+const MyBagTemplate<string>& Course::getStudentNames() const{
+	return studentNames;
+}
+
 void Course::addStudent(int ID, const string& name, double score){
 	studentIDs.insertMyBag(ID);
 	studentNames.insertMyBag(name);
@@ -155,7 +159,68 @@ void Course::menuInformation(){
 		}
 			  break;
 		case 3:{
+			//if empty error
+			if (courses.empty())
+			{
+				cout << "\n\t\t\tERROR: No data file has been read and stored into Courses.\n";
+				break;
+			}
+			cout << "\n\n\t\t\t3> Search by";
+			cout << "\n\t\t\t" << string(40, char(196));
+			cout << "\n\t\t\t  1. ID Number";
+			cout << "\n\t\t\t  2. Name";
+			cout << "\n\t\t\t  0. return";
+			cout << "\n\t\t\t" << string(40, char(196));
+			switch (inputInteger("\n\t\t\tOption: ", 0, 2))
+			{
+			case 1: {
+				//search by Student ID
+				int searchID = inputInteger("\n\t\tEnter the student ID to search: ");
+				int index = 0;
+				bool studentFound = false;
 
+				for (int i = 0; i < courses.size(); i++) {
+					if (courses[i].getStudentIDs().searchMyBag(searchID)) {
+						studentFound = true;
+						index = i;
+					}
+				}
+				if (!studentFound) {
+					cout << "\n\t\tStudent with ID " << searchID << " not found in any course.\n";
+				}
+				else {
+					cout << "\n\t\tID: " << searchID << " has been found in Course : " << courses[index].getName() << "\n";
+				}
+			}
+				  break;
+
+			case 2: {
+				// Search by Student Name
+				string searchName;// = inputString("\n\t\tEnter the student name to search: ", true);
+				cout << "\n\t\tEnter the student name to search: ";
+				cin >> searchName;
+				bool studentFound = false;
+				int index = 0;
+				for (int i = 0; i < courses.size(); i++) {
+					if (courses[i].getStudentNames().searchMyBag(searchName)) {
+						studentFound = true;
+						index = i;
+					}
+				}
+				//if not found
+				if (!studentFound) {
+					cout << "\n\t\tStudent with name " << searchName << " not found in any course.\n";
+				}
+				else {
+					cout << "\n\t\tID: " << searchName << " has been found in Course : " << courses[index].getName() << "\n";
+				}
+			}
+				  break;
+
+			case 0: {
+				return;
+			}
+			}
 		}
 			  break;
 		case 4: {

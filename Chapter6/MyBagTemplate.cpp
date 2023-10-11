@@ -54,7 +54,7 @@ void MyBagTemplate<T>::insertMyBag(const T& insert){
 }
 
 template<typename T>
-bool MyBagTemplate<T>::searchMyBag(const T& search){
+bool MyBagTemplate<T>::searchMyBag(const T& search) const{
     for (int i = 0; i < size; ++i){
         if (data[i] == search) {
             return true;

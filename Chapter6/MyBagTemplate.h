@@ -29,7 +29,7 @@ public:
 	//member functions to clear, insert, search, remove, sort, and display
 	void clearMyBag();
 	void insertMyBag(const T& insert);
-	bool searchMyBag(const T& search);
+	bool searchMyBag(const T& search) const;
 	bool removeMyBag(const T& remove);
 	void sortMyBag();
 

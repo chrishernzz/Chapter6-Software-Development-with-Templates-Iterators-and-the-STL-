@@ -37,6 +37,8 @@ public:
     const string& getName() const;
     int getNumStudents() const;
     const MyBagTemplate<int>& getStudentIDs() const;
+    const MyBagTemplate<string>& getStudentNames() const;
+
 
     //setters(mutators)
     void setName(const string newName);
