@@ -127,12 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Course.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyBag.cpp" />
+    <ClCompile Include="MyBagTemplate.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Course.h" />
     <ClInclude Include="input (1).h" />
+    <ClInclude Include="input.h" />
     <ClInclude Include="MyBag.h" />
+    <ClInclude Include="MyBagTemplate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

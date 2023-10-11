@@ -14,8 +14,8 @@ private:
 	//pointer variable to dynamic array of ints
 	vector<int> myBag;
 	int* newValue = new int[myBag.size()];
-	int* size;
-	int* capacity;
+	int size;
+	int capacity;
 public:
 	//defualt constructor
 	MyBag();

@@ -5,6 +5,7 @@
 #include<iostream>
 #include"input (1).h"
 #include"MyBag.h"
+#include"Course.h";
 using namespace std;
 
 //prototype
@@ -60,6 +61,6 @@ void challenge2() {
 //precondition: going to call my MyBagsCourse class that will read from the file
 //postcondition: going to then call my menuInformation function that will have all the information and the menus as well
 void challenge3() {
-	//Course menu;
-	//menu.menuInformation();
+	Course menu;
+	menu.menuInformation();
 }

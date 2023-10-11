@@ -1,38 +1,41 @@
 #include "MyBag.h"
 
 //precondition: going to call my defaults constructor
-//postcondition: going to set the variables to 0 since they are int (initialize them), allocating new memory
+//postcondition: going to set the variables to 0 since they are int (initialize them)
 MyBag::MyBag(): size(0), capacity(0){}
 //precondition: going to call my constructor
 //postcondition: going to be allocating new to the newSize and newCapacity with size and capacity
 MyBag::MyBag(int newSize, int newCapacity){
-	*size = newSize;
-	*capacity = newCapacity;
+	size = newSize;
+	capacity = newCapacity;
 }
 //precondition: going to call my deconstructor
-//postcondition: NA
-MyBag::~MyBag(){}
+//postcondition: going to deallocate the newValue 
+MyBag::~MyBag(){
+	newValue = nullptr;
+	delete[] newValue;
+}
 
 //precondition: going to get the size 
 //postcondition: going to return the private size
 int MyBag::getSize() const{
-	return *size;
+	return size;
 }
 //precondition: going to get the new size
 //postcondition: going to set the private size with the new size member
 void MyBag::setSize(int newSize){
-	*size = newSize;
+	size = newSize;
 }
 
 //precondition: going to get the capacity 
 //postcondition: going to return the private capacity
 int MyBag::getCapacity() const{
-	return *capacity;
+	return capacity;
 }
 //precondition: going to get the new capacity
 //postcondition: going to set the private capacity with the new sicapacityze member
 void MyBag::setCapacity(int newCapacity) {
-	*capacity = newCapacity;
+	capacity = newCapacity;
 }
 
 //precondition: going to call the myBag vector
