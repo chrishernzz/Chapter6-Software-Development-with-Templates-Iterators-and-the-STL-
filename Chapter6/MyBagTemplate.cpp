@@ -36,7 +36,8 @@ void MyBagTemplate<T>::clearMyBag(){
 	size = 0;
 	capacity = 0;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then insert to the myBag (return the value)
 template<typename T>
 void MyBagTemplate<T>::insertMyBag(const T& insert){
     if (size >= capacity){
@@ -53,7 +54,8 @@ void MyBagTemplate<T>::insertMyBag(const T& insert){
     }
     data[size++] = insert;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then search the myBag (return the value if found)
 template<typename T>
 bool MyBagTemplate<T>::searchMyBag(const T& search) const{
     for (int i = 0; i < size; ++i){
@@ -63,7 +65,8 @@ bool MyBagTemplate<T>::searchMyBag(const T& search) const{
     }
     return false;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then remove the myBag (return the value and remove it)
 template<typename T>
 bool MyBagTemplate<T>::removeMyBag(const T& remove){
     int index = -1;
@@ -82,17 +85,20 @@ bool MyBagTemplate<T>::removeMyBag(const T& remove){
     }
     return false;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then search the myBag (return the values in sorted form)
 template<typename T>
 void MyBagTemplate<T>::sortMyBag(){
     sort(data, data + size);
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then overload the < operator
 template<typename T>
 bool MyBagTemplate<T>::operator<(const MyBagTemplate<T>& obj) const{
     return size < obj.size;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then overload the [] operator
 template<typename T>
 T& MyBagTemplate<T>::operator[](int index){
     if (index < 0 || index >= size){
@@ -100,7 +106,8 @@ T& MyBagTemplate<T>::operator[](int index){
     }
     return data[index];
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then overload the [] operator for the size
 template<typename T>
 const T& MyBagTemplate<T>::operator[](size_t index) const{
     if (index >= 0 && index < size){
@@ -109,7 +116,8 @@ const T& MyBagTemplate<T>::operator[](size_t index) const{
     // Handle out-of-bounds access
     throw out_of_range("Index out of bounds");
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to return the cout of the bag
 template<typename T>
 ostream& operator<<(ostream& out, const MyBagTemplate<T>& bag){
     for (int i = 0; i < bag.size; ++i){
@@ -117,7 +125,8 @@ ostream& operator<<(ostream& out, const MyBagTemplate<T>& bag){
     }
     return out;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then add the myBag (call the ensureCpacity() function)
 template<typename T>
 void MyBagTemplate<T>::add(double value) {
     if (size == capacity) {
@@ -125,7 +134,8 @@ void MyBagTemplate<T>::add(double value) {
     }
     data[size++] = value;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then clear the myBag (its going to be empty)
 template<typename T>
 void MyBagTemplate<T>::clear() {
     delete[] data;
@@ -133,7 +143,8 @@ void MyBagTemplate<T>::clear() {
     size = 0;
     capacity = 0;
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then check the ensure capacity the myBag
 template<typename T>
 void MyBagTemplate<T>::ensureCapacity(int newCapacity) {
     if (newCapacity > capacity) {
@@ -146,7 +157,8 @@ void MyBagTemplate<T>::ensureCapacity(int newCapacity) {
         capacity = newCapacity;
     }
 }
-
+//precondition: going to call the myBag (template)
+//postcondition: going to then check whats in the myBag
 template<typename T>
 bool MyBagTemplate<T>::contains(double value) const {
     for (int i = 0; i < size; i++) {
@@ -156,8 +168,8 @@ bool MyBagTemplate<T>::contains(double value) const {
     }
     return false;
 }
-
-
+//precondition: going to print the information in template form
+//postcondition: going to create a menu that accepts 
 template<typename T>
 void MyBagTemplate<T>::menuInformation(){
     system("cls");

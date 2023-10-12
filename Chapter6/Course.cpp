@@ -95,7 +95,6 @@ void Course::menuInformation(){
     vector <Course> courses;
 	int numCourses = 0;
 	string fileName = "";
-	ifstream file;
 	do
 	{
 		beginning:
@@ -131,6 +130,7 @@ void Course::menuInformation(){
 					if (fileName == "STOP" || fileName == "stop") {
 						break;
 					}
+					ifstream file;
 					//open the file
 					file.open(fileName);
 					//if the file does not exists
@@ -293,8 +293,6 @@ void Course::menuInformation(){
 		}
 			  break;
 		case 0: {
-			//closing the file
-			file.close();
 			return;
 		}
 		}

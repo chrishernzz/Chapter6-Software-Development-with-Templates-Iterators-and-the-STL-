@@ -9,6 +9,7 @@ char inputChar(string prompt, string options);
 int inputInteger(string prompt);
 int inputInteger(string prompt, int startRange, int endRange);
 
+//precondition:
 class MyBag{
 private:
 	//pointer variable to dynamic array of ints

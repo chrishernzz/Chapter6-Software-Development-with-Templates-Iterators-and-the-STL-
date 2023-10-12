@@ -1,6 +1,9 @@
 //Christian Hernandez
-//Date: 10/12/2023
+//Date: 10/11/2023
 //subscription: CMPR131
+
+//Credit:
+//Christian Hernandez,Saul Merino,Thanh Tran, John Kim, Joe Bryant,Erik Santana, & Otoniel Torres Bernal
 
 #include<iostream>
 #include"input (1).h"
