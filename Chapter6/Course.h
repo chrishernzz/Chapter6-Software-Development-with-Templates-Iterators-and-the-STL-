@@ -13,6 +13,7 @@ int inputInteger(string prompt);
 int inputInteger(string prompt, int startRange, int endRange);
 int inputInteger(string prompt, bool posNeg);
 string inputString(string prompt, bool spaces);
+string removeLeadingTrailingSpaces(const string& input);
 
 //precondition: going to create a class that is Course
 //postcondition: going to then use the MyBagTemplate Class for int,string,double, and char

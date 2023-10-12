@@ -124,9 +124,12 @@ void Course::menuInformation(){
 				cout << "\n\t\t\tERROR: number of courses has not been assigned.\n";
 				break;
 			}
+			//clearing the vector so no data is left
+			courses.clear();
 			for (int i = 0; i < numCourses; i++){
 				while (true){
 					fileName = inputString("\n\t\t\t2> Enter a data file name for course[" + to_string(i) + "] (STOP - return): ", false);
+					//IF STOP THEN RETURN TO MENU
 					if (fileName == "STOP") {
 						return;
 					}
@@ -150,8 +153,9 @@ void Course::menuInformation(){
 							getline(file, id, ',');
 							getline(file, name, ',');
 							file >> score;
+							string cleaned_name = removeLeadingTrailingSpaces(name);
 							int ID = stoi(id);
-							courses[i].addStudent(ID, name, score);
+							courses[i].addStudent(ID, cleaned_name, score);
 						}
 						break;
 					}
@@ -195,10 +199,10 @@ void Course::menuInformation(){
 			}
 				  break;
 			case 2: {
-				bool studentFound = false;
-				int index = 0;
 				//search by Student Name
 				string searchName = inputString("\n\t\tEnter the student name to search: ",true);
+				bool studentFound = false;
+				int index = 0;
 				for (int i = 0; i < courses.size(); i++) {
 					if (courses[i].getStudentNames().searchMyBag(searchName)) {
 						studentFound = true;
