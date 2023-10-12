@@ -127,8 +127,8 @@ void Course::menuInformation(){
 			for (int i = 0; i < numCourses; i++){
 				while (true){
 					fileName = inputString("\n\t\t\t2> Enter a data file name for course[" + to_string(i) + "] (STOP - return): ", false);
-					if (fileName == "STOP" || fileName == "stop") {
-						break;
+					if (fileName == "STOP") {
+						return;
 					}
 					ifstream file;
 					//open the file
@@ -226,7 +226,7 @@ void Course::menuInformation(){
 				cout << "\n\t\t\tERROR: No data file has been read and stored into Courses.\n";
 				break;
 			}
-			int removeId = inputInteger("\n\t\tEnter the student ID to remove: ");
+			int removeId = inputInteger("\n\t\t\tEnter the student ID to remove: ");
 			int index = 0;
 			bool studentFound = false;
 
@@ -238,14 +238,14 @@ void Course::menuInformation(){
 			}
 
 			if (!studentFound){
-				cout << "\n\t\tNo student ID: " << removeId << " found.\n";
+				cout << "\n\t\t\tNo student ID: " << removeId << " found.\n";
 				break;
 			}
 			for (Course& course : courses){
 				course.removeStudent(removeId);
 			}
 
-			cout << "\n\t\tStudent with ID " << removeId << " removed from all courses.\n";
+			cout << "\n\t\t\tStudent with ID " << removeId << " removed from all courses.\n";
 
 			// logic error remove element for a vector 
 

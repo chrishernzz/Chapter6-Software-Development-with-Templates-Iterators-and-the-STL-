@@ -9,7 +9,8 @@ char inputChar(string prompt, string options);
 int inputInteger(string prompt);
 int inputInteger(string prompt, int startRange, int endRange);
 
-//precondition:
+//precondition: going to create a class that has MyBag
+//postcondition: going to pass in vector, allocate and deallocate, two variabels size and capacity
 class MyBag{
 private:
 	//pointer variable to dynamic array of ints

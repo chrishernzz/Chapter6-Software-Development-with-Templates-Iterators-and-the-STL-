@@ -14,6 +14,8 @@ int inputInteger(string prompt, int startRange, int endRange);
 int inputInteger(string prompt, bool posNeg);
 string inputString(string prompt, bool spaces);
 
+//precondition: going to create a class that is Course
+//postcondition: going to then use the MyBagTemplate Class for int,string,double, and char
 class Course{
 private:
     //hold the coures name

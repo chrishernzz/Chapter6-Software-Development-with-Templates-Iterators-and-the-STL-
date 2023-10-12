@@ -9,6 +9,8 @@ int inputInteger(string prompt);
 int inputInteger(string prompt, int startRange, int endRange);
 double inputDouble(string prompt);
 
+//precondition: going to create a class that is Template
+//postcondition: going to pass in get the T data (template class), allocate and deallocate, two variabels size and capacity
 //Template class MyBag for dynamic array
 template<typename T>
 class MyBagTemplate{
