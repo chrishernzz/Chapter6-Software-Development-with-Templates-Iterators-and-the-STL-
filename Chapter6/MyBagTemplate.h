@@ -3,6 +3,12 @@
 #include <algorithm>
 using namespace std;
 
+//input (1) header files inputs validation
+char inputChar(string prompt, string options);
+int inputInteger(string prompt);
+int inputInteger(string prompt, int startRange, int endRange);
+double inputDouble(string prompt);
+
 //Template class MyBag for dynamic array
 template<typename T>
 class MyBagTemplate{
@@ -11,6 +17,12 @@ private:
 	int size;
 	int capacity;
 public:
+	// Functions to interact with the bag
+	void add(double value);
+	void clear();
+	bool contains(double value) const;
+	void ensureCapacity(int newCapacity);
+
 	//defualt constructor
 	MyBagTemplate();
 	//constructor
@@ -39,4 +51,6 @@ public:
 	const T& operator[](size_t index) const;
 	friend ostream& operator<<(ostream& out, const MyBagTemplate<T>& bag);
 
+	//member function to get the menu option
+	void menuInformation();
 };

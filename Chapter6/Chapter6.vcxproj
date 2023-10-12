@@ -135,7 +135,6 @@
   <ItemGroup>
     <ClInclude Include="Course.h" />
     <ClInclude Include="input (1).h" />
-    <ClInclude Include="input.h" />
     <ClInclude Include="MyBag.h" />
     <ClInclude Include="MyBagTemplate.h" />
   </ItemGroup>

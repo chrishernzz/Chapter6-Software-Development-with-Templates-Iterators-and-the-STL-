@@ -5,6 +5,7 @@
 #include<iostream>
 #include"input (1).h"
 #include"MyBag.h"
+#include"MyBagTemplate.h";
 #include"Course.h";
 using namespace std;
 
@@ -55,8 +56,8 @@ void challenge1() {
 //precondition: going to call my Rational Class
 //postcondition: going to then displayInformation function so that will give me the information for rational
 void challenge2() {
-	/*Rational menu;
-	menu.RationalMenu();*/
+	MyBagTemplate<double> menu;
+	menu.menuInformation();
 }
 //precondition: going to call my MyBagsCourse class that will read from the file
 //postcondition: going to then call my menuInformation function that will have all the information and the menus as well

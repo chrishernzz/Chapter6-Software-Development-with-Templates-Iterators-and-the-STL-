@@ -277,3 +277,32 @@ double inputDouble(string prompt, double startRange, double endRange)
 	} while (true);
 	return input;
 }
+//PreCondition: spaces (boolean true or false)
+//PostCondition: returns a string including space character(s) or without space character 
+string inputString(string prompt, bool spaces)
+{
+	string input = "";
+
+	do
+	{
+		cout << prompt;
+		if (spaces)
+			getline(cin, input);
+		else
+		{
+			cin >> input;
+			cin.clear();
+			cin.ignore(999, '\n');
+		}
+
+		if (input.empty())
+		{
+			cout << "ERROR: Input can not be empty.\n";
+		}
+		else
+			break;
+
+	} while (true);
+
+	return input;
+}
