@@ -282,12 +282,19 @@ double inputDouble(string prompt, double startRange, double endRange)
 string inputString(string prompt, bool spaces)
 {
 	string input = "";
-
+	bool displayPrompt = true;
 	do
 	{
-		cout << prompt;
+		if (displayPrompt)
+		{
+			cout << prompt;
+			displayPrompt = false; // Set the flag to false after displaying the prompt once
+		}
+
 		if (spaces)
+		{
 			getline(cin, input);
+		}
 		else
 		{
 			cin >> input;
@@ -295,17 +302,11 @@ string inputString(string prompt, bool spaces)
 			cin.ignore(999, '\n');
 		}
 
-		if (input.empty())
-		{
-			cout << "ERROR: Input can not be empty.\n";
-		}
-		else
-			break;
-
-	} while (true);
+	} while (input.empty());
 
 	return input;
 }
+
 //PreCondition: a string input
 //PostCondition: Function to remove leading and trailing spaces from a string
 string removeLeadingTrailingSpaces(const string& input)

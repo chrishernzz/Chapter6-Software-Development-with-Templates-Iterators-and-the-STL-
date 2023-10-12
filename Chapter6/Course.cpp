@@ -71,21 +71,29 @@ bool Course::removeStudent(int ID){
 }
 //precondition: going to display
 //postcondition: going to return the student information and the course
-void Course::displayCourse(){
-	double sum = 0.0;
-	double average = 0.0;
-    cout << "\n\t\t\t" << name;
-    cout << "\n\t\t\tindex    StudentID                      Name    Score   Grade";
-    for (int i = 0; i < studentIDs.getSize(); i++)
-    {
-        cout << "\n\t\t\t    " << i << "        " << studentIDs[i] << "                 " << studentNames[i] << "     " << right << setw(4) << studentScores[i] << "   " << studentGrades[i];
-		//getting the total of the scores
-		sum += studentScores[i];
-    }
-	//get the total and divide it by the students
-	average = sum / studentIDs.getSize();
-	cout << "\n\n\t\t\tAverage score and grade: " << average <<"("<<calculateGrade(average)<<")";
-    cout << '\n';
+void Course::displayCourse() {
+	//if students is at 0, then there are no students, NO INFORMATION
+	if (studentIDs.getSize() == 0) {
+		cout << "\n\n\t\t\t" << name << " has no students.";
+	}
+	else {
+		double sum = 0.0;
+		double average = 0.0;
+
+		cout << "\n\t\t\t" << name;
+		cout << "\n\t\t\tindex    StudentID                      Name    Score   Grade";
+		for (int i = 0; i < studentIDs.getSize(); i++)
+		{
+			cout << "\n\t\t\t    " << i << "        " << studentIDs[i] << "                 " << studentNames[i] << "     " << right << setw(4) << studentScores[i] << "   " << studentGrades[i];
+			//getting the total of the scores
+			sum += studentScores[i];
+		}
+
+		//get the total and divide it by the students
+		average = sum / studentIDs.getSize();
+		cout << "\n\n\t\t\tAverage score and grade: " << average << "(" << calculateGrade(average) << ")";
+		cout << '\n';
+	}
 }
 //precondition: going to print the information
 //postcondition: going to create a menu that accepts 
@@ -199,8 +207,9 @@ void Course::menuInformation(){
 			}
 				  break;
 			case 2: {
+				string searchName;
 				//search by Student Name
-				string searchName = inputString("\n\t\tEnter the student name to search: ",true);
+			    searchName = inputString("\n\t\tEnter the student name to search: ", true);
 				bool studentFound = false;
 				int index = 0;
 				for (int i = 0; i < courses.size(); i++) {
@@ -250,17 +259,6 @@ void Course::menuInformation(){
 			}
 
 			cout << "\n\t\t\tStudent with ID " << removeId << " removed from all courses.\n";
-
-			// logic error remove element for a vector 
-
-			//for (int i = courses.size() - 1; i >= 0; i--) 
-			//{
-			//	if (courses[i].getNumStudents() == 0)
-			//	{
-			//		courses.erase(courses.begin() + i);
-			//	}
-			//}
-			//break;
 		}
 			  break;
 		case 5:{

@@ -176,7 +176,7 @@ void MyBagTemplate<T>::menuInformation(){
     char option;
     do {
     beginning:
-        cout << "\n\t\t2> emplate MyBag<double> container";
+        cout << "\n\t\t2> Template MyBag<double> container";
         cout << "\n\t\t" << string(82, char(205));
         cout << "\n\t\t\tA> clear";
         cout << "\n\t\t\tB> insert";
